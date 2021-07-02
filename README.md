@@ -10,7 +10,7 @@ Made by scratch, some bugs, but all fine at all.
 
 ## Screenshots
 ![Character Selection](https://media.discordapp.net/attachments/837056179682803804/860346824371077140/unknown.png?width=1202&height=676)
-![Character Registration](https://media.discordapp.net/attachments/837056179682803804/860346824371077140/unknown.png?width=1202&height=676)
+![Character Registration](https://media.discordapp.net/attachments/837056179682803804/860346877584343060/unknown.png?width=1202&height=676)
 
 ## Know's Bug
 - When you loggout you still seeing your character information.
