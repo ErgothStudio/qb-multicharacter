@@ -9,12 +9,12 @@ Multi Character Feature for QB-Core Framework :people_holding_hands:
 - [qb-weathersync](https://github.com/qbcore-framework/qb-weathersync) - For adjusting the weather while player is creating a character.
 
 ## Screenshots
-![Character Selection](https://imgur.com/mKQz5Vh.png)
-![Character Registration](https://imgur.com/YOWMmHb.png)
+![Character Selection](https://media.discordapp.net/attachments/837056179682803804/860346824371077140/unknown.png?width=1202&height=676)
+![Character Registration](https://media.discordapp.net/attachments/837056179682803804/860346824371077140/unknown.png?width=1202&height=676)
 
-## Features
-- Ability to create up to 5 characters and delete any character.
-- Ability to see character information during selection.
+## Know's Bug
+- When you loggout you still seeing your character information.
+- When loggout and you go back you cannot see your character information
 
 ## Installation
 ### Manual
