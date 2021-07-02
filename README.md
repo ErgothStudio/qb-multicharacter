@@ -1,5 +1,5 @@
 # qb-multicharacter
-Multi Character Feature for QB-Core Framework :people_holding_hands:
+Made by scratch, some bugs, but all fine at all.
 
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
