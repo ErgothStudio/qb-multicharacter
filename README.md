@@ -29,4 +29,4 @@ ensure qb-clothing
 ensure qb-weathersync
 ```
 
-## All right's reserved for the author of framework.
+## All right's reserved to author of the framework.
