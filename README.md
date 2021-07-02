@@ -28,3 +28,5 @@ ensure qb-apartments
 ensure qb-clothing
 ensure qb-weathersync
 ```
+
+## All right's reserved for the author of framework.
