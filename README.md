@@ -9,8 +9,8 @@ Made by scratch, some bugs, but all fine at all.
 - [qb-weathersync](https://github.com/qbcore-framework/qb-weathersync) - For adjusting the weather while player is creating a character.
 
 ## Screenshots
-![Character Selection](https://media.discordapp.net/attachments/837056179682803804/860346824371077140/unknown.png?width=1202&height=676)
-![Character Registration](https://media.discordapp.net/attachments/837056179682803804/860346877584343060/unknown.png?width=1202&height=676)
+![Character Selection](https://media.discordapp.net/attachments/860694509318832148/866581379278176276/unknown.png)
+![Character Registration](https://cdn.discordapp.com/attachments/860694509318832148/866581453412630528/unknown.png)
 
 ## Know's Bug
 - When you loggout you still seeing your character information.
