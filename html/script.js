@@ -170,7 +170,7 @@ setPlayerValues = function(data) {
 $( "#streamermode" ).change(function() {
     let valstreamer = $(this).prop('checked')
     setAllHide(valstreamer)
-    $.post('https://z-multicharacter/streamermode', JSON.stringify({val: valstreamer}));
+    $.post('https://qb-multicharacter/streamermode', JSON.stringify({val: valstreamer}));
 });
 
 setAllHide = function(val) {
@@ -217,11 +217,11 @@ $(".mid-characters").hover(
 );
 
 $(document).on('click', '.mid-account', function(e) {
-	$.post('https://z-multicharacter/Quit');
+	$.post('https://qb-multicharacter/Quit');
 });
 
 $('.backbtn').click(function(e){
-    $.post('https://z-multicharacter/activeBlur');
+    $.post('https://qb-multicharacter/activeBlur');
     $('.container').hide(400);
 	$('.char-buttons').fadeOut(300);
     setTimeout(() => {
@@ -232,7 +232,7 @@ $('.backbtn').click(function(e){
         $("#play").css({"display":"none"});
         $("#delete").css({"display":"none"});
         //MultiCharacters.fadeInDown('.character-info', '-80%', 400);
-        $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+        $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: "delete"
         }));
         clickDisable = true;
@@ -254,14 +254,14 @@ $('#pcharselect').click(function(e){
     setTimeout(() => {   
         loadingIcon(2000);   
         setTimeout(function(){
-            $.post('https://z-multicharacter/setupCharacters');
+            $.post('https://qb-multicharacter/setupCharacters');
             setTimeout(function(){
                 MultiCharacters.resetAll();
                 $(".welcomescreen").fadeOut(150);
                 $('.bars').fadeIn(1000)
                 //MultiCharacters.fadeInDown('.character-info', '20%', 400);
                 MultiCharacters.fadeInLeft('.characters-list', '7%', 400);
-                $.post('https://z-multicharacter/removeBlur');
+                $.post('https://qb-multicharacter/removeBlur');
             }, 2000);
         }, 2000);
     }, 500);
@@ -270,8 +270,8 @@ $('#pcharselect').click(function(e){
 $('.disconnect-btn').click(function(e){
     e.preventDefault();
 
-    $.post('https://z-multicharacter/closeUI');
-    $.post('https://z-multicharacter/disconnectButton');
+    $.post('https://qb-multicharacter/closeUI');
+    $.post('https://qb-multicharacter/disconnectButton');
 });
 
 function setupCharInfo(cData) {
@@ -336,14 +336,14 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
@@ -357,14 +357,14 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
@@ -378,7 +378,7 @@ $(document).on('click', '.character', function(e) {
         $("#play").css({"display":"none"});
         $("#delete").css({"display":"none"});
         //MultiCharacters.fadeInDown('.character-info', '-80%', 400);
-        $.post('https://z-multicharacter/cDataPed', JSON.stringify({
+        $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
                 cData: "delete"
         }));
         clickDisable = true;
@@ -388,7 +388,7 @@ $(document).on('click', '.character', function(e) {
 
 $(document).on('click', '#create', function(e){
     e.preventDefault();
-    $.post('https://z-multicharacter/createNewCharacter', JSON.stringify({
+    $.post('https://qb-multicharacter/createNewCharacter', JSON.stringify({
         firstname: $('#first_name').val(),
         lastname: $('#last_name').val(),
         nationality: $('#nationality').val(),
@@ -404,7 +404,7 @@ $(document).on('click', '#create', function(e){
 });
 
 $(document).on('click', '#accept-delete', function(e){
-    $.post('https://z-multicharacter/removeCharacter', JSON.stringify({
+    $.post('https://qb-multicharacter/removeCharacter', JSON.stringify({
         citizenid: $(selectedChar).data("citizenid"),
     }));
     $('.character-delete').fadeOut(150);
@@ -453,7 +453,7 @@ chatplay = function(){
     var charData = $(selectedChar).data('cid');
     if (selectedChar !== null) {
         if (charData !== "") {
-            $.post('https://z-multicharacter/selectCharacter', JSON.stringify({
+            $.post('https://qb-multicharacter/selectCharacter', JSON.stringify({
                 cData: $(selectedChar).data('cData')
             }));
             setTimeout(function(){
