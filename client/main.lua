@@ -1,11 +1,11 @@
-QBCore = nil
+
 
 local charPed = nil
 
 Citizen.CreateThread(function() 
     while QBCore == nil do
-        TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)    
-        Citizen.Wait(200)
+            
+        Citizen.Wait(0)
     end
 end)
 
@@ -59,6 +59,11 @@ RegisterNUICallback('selectCharacter', function(data)
     DeleteEntity(charPed)
 end)
 
+RegisterNUICallback('asdasdasdsa', function(data)
+    local cData = data.cData
+    DeleteEntity(charPed)
+end)
+
 RegisterNetEvent('qb-multicharacter:client:closeNUI')
 AddEventHandler('qb-multicharacter:client:closeNUI', function()
     SetNuiFocus(false, false)
@@ -68,20 +73,73 @@ local Countdown = 1
 
 RegisterNetEvent('qb-multicharacter:client:chooseChar')
 AddEventHandler('qb-multicharacter:client:chooseChar', function()
-    SetNuiFocus(false, false)
-    DoScreenFadeOut(10)
-    Citizen.Wait(1000)
-    local interior = GetInteriorAtCoords(-814.89, 181.95, 76.85 - 18.9)
-    LoadInterior(interior)
-    while not IsInteriorReady(interior) do
-        Citizen.Wait(1000)
+    DeleteEntity(charPed)
+    SetTimecycleModifier('hud_def_blur')
+    SetTimecycleModifierStrength(0.0)
+    if not IsPlayerSwitchInProgress() then
+        SwitchOutPlayer(GetPlayerPed(-1), 1, 1)
     end
-    FreezeEntityPosition(PlayerPedId(), true)
-    SetEntityCoords(PlayerPedId(), Config.HiddenCoords.x, Config.HiddenCoords.y, Config.HiddenCoords.z)
-    Citizen.Wait(1500)
+    while GetPlayerSwitchState() ~= 5 do
+        Citizen.Wait(0)
+        ClearScreen()
+        disableshit(true)
+    end
+    ClearScreen()
+    Citizen.Wait(0)
+    SetEntityCoords(GetPlayerPed(-1), Config.HiddenCoords.x, Config.HiddenCoords.y, Config.HiddenCoords.z)
+    local timer = GetGameTimer()
     ShutdownLoadingScreenNui()
+	FreezeEntityPosition(GetPlayerPed(-1), true)
+    SetEntityVisible(GetPlayerPed(-1), false, false)
+    Citizen.CreateThread(function()
+        RequestCollisionAtCoord(-812.23, 182.54, 76.74, 156.5)
+        while not HasCollisionLoadedAroundEntity(GetPlayerPed(-1)) do
+            print('Carregando colisão do interior.')
+            Wait(0)
+        end
+    end)
+    Citizen.Wait(3500)
+
+    while true do
+        ClearScreen()
+        Citizen.Wait(0)
+        if GetGameTimer() - timer > 5000 then
+            SwitchInPlayer(GetPlayerPed(-1))
+            ClearScreen()
+            CreateThread(function()
+                Wait(4000)
+            end)
+
+            while GetPlayerSwitchState() ~= 12 do
+                Citizen.Wait(0)
+                ClearScreen()
+            end
+            
+            break
+        end
+    end
+    NetworkSetTalkerProximity(0.0)
     openCharMenu(true)
 end)
+
+function ClearScreen()
+    SetCloudHatOpacity(cloudOpacity)
+    HideHudAndRadarThisFrame()
+    SetDrawOrigin(0.0, 0.0, 0.0, 0)
+end
+
+function disableshit(bool)
+    if bool then
+        print('a')
+        TriggerEvent('close:ui:hud')
+        openCharMenu(false)
+        SetEntityAsMissionEntity(charPed, true, true)
+        DeleteEntity(charPed)
+    else
+        TriggerEvent('open:ui:hud')
+        openCharMenu(true)
+    end
+end
 
 function selectChar()
     openCharMenu(true)
@@ -171,9 +229,11 @@ end)
 RegisterNUICallback('createNewCharacter', function(data)
     local cData = data
     DoScreenFadeOut(150)
-    if cData.gender == "Male" then
+    if cData.gender == "Homem" then
         cData.gender = 0
-    elseif cData.gender == "Female" then
+    elseif cData.gender == "Mulher" then
+        cData.gender = 1
+    elseif cData.gender == "Não-binário" then
         cData.gender = 1
     end
 
@@ -199,7 +259,7 @@ function skyCam(bool)
         DoScreenFadeIn(1000)
         SetTimecycleModifier('hud_def_blur')
         SetTimecycleModifierStrength(1.0)
-        FreezeEntityPosition(PlayerPedId(), false)
+        FreezeEntityPosition(GetPlayerPed(-1), false)
         cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -813.46, 178.95, 76.85, 0.0 ,0.0, 174.5, 60.00, false, 0)
         SetCamActive(cam, true)
         RenderScriptCams(true, false, 1, true, true)
@@ -208,6 +268,20 @@ function skyCam(bool)
         SetCamActive(cam, false)
         DestroyCam(cam, true)
         RenderScriptCams(false, false, 1, true, true)
-        FreezeEntityPosition(PlayerPedId(), false)
+        FreezeEntityPosition(GetPlayerPed(-1), false)
     end
 end
+
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+	ShutdownLoadingScreenNui()
+	choosingCharacter = true
+    	SetCanAttackFriendly(GetPlayerPed(-1), true, false)
+    	NetworkSetFriendlyFireOption(true)
+end)
+
+RegisterNetEvent('QBCore:Client:OnPlayerUnload')
+AddEventHandler('QBCore:Client:OnPlayerUnload', function()
+    choosingCharacter = false
+    TriggerEvent('qb-multicharacter:client:chooseChar')
+end)

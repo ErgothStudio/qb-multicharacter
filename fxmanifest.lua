@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'QB-Multicharacter'
+description 'qb-Multicharacter'
 version '1.0.0'
 
 ui_page "html/index.html"
@@ -21,6 +21,9 @@ files {
     'html/script.js',
     'html/zion.png'
 }
+
+shared_script '@qb-core/import.lua'
+
 
 dependencies {
     'qb-core',

@@ -38,7 +38,7 @@ $(document).ready(function (){
 loadingCharacter = function(val) {
     if (val) {
         $(".welcomescreen").fadeIn(150);
-        $("#loading-text").html("Loading Character");
+        $("#loading-text").html("Carregando personagem...");
         clickDisable = true;
     } else {
         $(".welcomescreen").fadeOut(150);
@@ -80,7 +80,7 @@ resetCharSelector = function() {
 loadingIcon = function(tiempo) {
     $(".welcomescreen").fadeIn(1000);
 
-    var originalText = "Retrieving player information";
+    var originalText = "Verificando seu passaporte...";
     var loadingProgress = 0;
     var loadingDots = 0;
     $("#loading-text").html(originalText);
@@ -89,15 +89,15 @@ loadingIcon = function(tiempo) {
         loadingDots++;
         loadingProgress++;
         if (loadingProgress == 3) {
-            originalText = "Validating player data"
+            originalText = "Fazendo um café..."
             $("#loading-text").html(originalText);
         }
         if (loadingProgress == 4) {
-            originalText = "Retrieving player characters"
+            originalText = "Verificando informações do(a) jogador(a)..."
             $("#loading-text").html(originalText);
         }
         if (loadingProgress == 6) {
-            originalText = "Validating player characters"
+            originalText = "Validando personagens do(a) jogador(a)."
             $("#loading-text").html(originalText);
         }
         if(loadingDots == 4) {
@@ -109,7 +109,7 @@ loadingIcon = function(tiempo) {
     setTimeout(function(){
         clearInterval(DotsInterval);
         loadingProgress = 0;
-        originalText = "Retrieving Data";
+        originalText = "Verificando informações...";
     }, tiempo);//2000);
 }
 
@@ -170,7 +170,7 @@ setPlayerValues = function(data) {
 $( "#streamermode" ).change(function() {
     let valstreamer = $(this).prop('checked')
     setAllHide(valstreamer)
-    $.post('https://qb-multicharacter/streamermode', JSON.stringify({val: valstreamer}));
+    $.post('https://z-multicharacter/streamermode', JSON.stringify({val: valstreamer}));
 });
 
 setAllHide = function(val) {
@@ -217,11 +217,11 @@ $(".mid-characters").hover(
 );
 
 $(document).on('click', '.mid-account', function(e) {
-	$.post('https://qb-multicharacter/Quit');
+	$.post('https://z-multicharacter/Quit');
 });
 
 $('.backbtn').click(function(e){
-    $.post('https://qb-multicharacter/activeBlur');
+    $.post('https://z-multicharacter/activeBlur');
     $('.container').hide(400);
 	$('.char-buttons').fadeOut(300);
     setTimeout(() => {
@@ -232,7 +232,7 @@ $('.backbtn').click(function(e){
         $("#play").css({"display":"none"});
         $("#delete").css({"display":"none"});
         //MultiCharacters.fadeInDown('.character-info', '-80%', 400);
-        $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+        $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: "delete"
         }));
         clickDisable = true;
@@ -254,14 +254,14 @@ $('#pcharselect').click(function(e){
     setTimeout(() => {   
         loadingIcon(2000);   
         setTimeout(function(){
-            $.post('https://qb-multicharacter/setupCharacters');
+            $.post('https://z-multicharacter/setupCharacters');
             setTimeout(function(){
                 MultiCharacters.resetAll();
                 $(".welcomescreen").fadeOut(150);
                 $('.bars').fadeIn(1000)
                 //MultiCharacters.fadeInDown('.character-info', '20%', 400);
                 MultiCharacters.fadeInLeft('.characters-list', '7%', 400);
-                $.post('https://qb-multicharacter/removeBlur');
+                $.post('https://z-multicharacter/removeBlur');
             }, 2000);
         }, 2000);
     }, 500);
@@ -270,8 +270,8 @@ $('#pcharselect').click(function(e){
 $('.disconnect-btn').click(function(e){
     e.preventDefault();
 
-    $.post('https://qb-multicharacter/closeUI');
-    $.post('https://qb-multicharacter/disconnectButton');
+    $.post('https://z-multicharacter/closeUI');
+    $.post('https://z-multicharacter/disconnectButton');
 });
 
 function setupCharInfo(cData) {
@@ -336,14 +336,14 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
@@ -357,14 +357,14 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+            $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: cDataPed
             }));
             clickDisable = true;
@@ -378,7 +378,7 @@ $(document).on('click', '.character', function(e) {
         $("#play").css({"display":"none"});
         $("#delete").css({"display":"none"});
         //MultiCharacters.fadeInDown('.character-info', '-80%', 400);
-        $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
+        $.post('https://z-multicharacter/cDataPed', JSON.stringify({
                 cData: "delete"
         }));
         clickDisable = true;
@@ -388,7 +388,7 @@ $(document).on('click', '.character', function(e) {
 
 $(document).on('click', '#create', function(e){
     e.preventDefault();
-    $.post('https://qb-multicharacter/createNewCharacter', JSON.stringify({
+    $.post('https://z-multicharacter/createNewCharacter', JSON.stringify({
         firstname: $('#first_name').val(),
         lastname: $('#last_name').val(),
         nationality: $('#nationality').val(),
@@ -404,7 +404,7 @@ $(document).on('click', '#create', function(e){
 });
 
 $(document).on('click', '#accept-delete', function(e){
-    $.post('https://qb-multicharacter/removeCharacter', JSON.stringify({
+    $.post('https://z-multicharacter/removeCharacter', JSON.stringify({
         citizenid: $(selectedChar).data("citizenid"),
     }));
     $('.character-delete').fadeOut(150);
@@ -420,7 +420,7 @@ $(document).on('click', '#cancel-delete', function(e){
 });
 
 function refreshCharacters() {
-    $('.characters-list').html('<div class="character-list-header"><p>Meus personagens</p></div><div class="character" id="char-1" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">Slot vazio<span id="cid"></span></span></div><div class="character" id="char-2" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">Slot vazio<span id="cid"></span></span></div><div class="character" id="char-3" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">Slot vazio<span id="cid"></span></span></div><div class="character" id="char-4" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">Slot vazio<span id="cid"></span></span></div><div class="character" id="char-5" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">Slot vazio<span id="cid"></span></span></div>')    
+    $('.characters-list').html('<div class="character-list-header"><p>Meus personagens</p></div><div class="character" id="char-1" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">SLOT VAZIO<span id="cid"></span></span></div><div class="character" id="char-2" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">SLOT VAZIO<span id="cid"></span></span></div><div class="character" id="char-3" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">SLOT VAZIO<span id="cid"></span></span></div><div class="character" id="char-4" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">SLOT VAZIO<span id="cid"></span></span></div><div class="character" id="char-5" data-cid=""><span id="slot-icon" class="material-icons">account_box</span><span id="slot-name">SLOT VAZIO<span id="cid"></span></span></div>')    
     setTimeout(function(){
         $(selectedChar).removeClass("char-selected");
         selectedChar = null;
@@ -453,7 +453,7 @@ chatplay = function(){
     var charData = $(selectedChar).data('cid');
     if (selectedChar !== null) {
         if (charData !== "") {
-            $.post('https://qb-multicharacter/selectCharacter', JSON.stringify({
+            $.post('https://z-multicharacter/selectCharacter', JSON.stringify({
                 cData: $(selectedChar).data('cData')
             }));
             setTimeout(function(){

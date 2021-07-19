@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
 
 body {
     user-select: none;
@@ -39,7 +42,7 @@ body {
     right:-100vh;
     display: none;
     text-align: center;
-    background-color: rgba(64, 6, 88, 0.473);
+    background-color: rgba(52, 58, 64, 0.5);
     line-height: 100vh;
 }
 
@@ -51,7 +54,7 @@ body {
     left: -100vh;
     display: none;
     text-align: center;   
-    background-color: rgba(64, 6, 88, 0.473); 
+    background-color: rgba(52, 58, 64, 0.5); 
     line-height: 100vh;
 }
 
@@ -113,7 +116,7 @@ body {
     line-height: 2;
     top: 1vh;
     font-size: 2.5vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     text-align: left;
@@ -133,7 +136,7 @@ body {
 
 .streamermode p {
     font-size: 1.6vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     color: white;
@@ -163,7 +166,7 @@ body {
     color: white;
     left: 0;
     font-size: 1.5vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     text-align: left;
@@ -174,7 +177,7 @@ body {
     left: 0;
     width: fit-content;
     font-size: 1.4vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     text-align: left; 
     opacity: 0.8;
@@ -222,7 +225,7 @@ body {
     line-height: 2;
     top: 1vh;
     font-size: 2.5vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     text-align: right;
@@ -244,8 +247,12 @@ body {
     border-radius: .5vh;
 }
 
+.collapsible {
+    border-radius: .5vh;
+}
+
 .collapsible-header.vipcolap {
-    background-color: #e2e2e2fc;
+    background-color: #7952B3;
     color: black;
     border-bottom: grey 1px solid;
 }
@@ -269,10 +276,10 @@ body {
 
 
 .chartext:hover>i.iconselect {
-    color: #6103c2;
+    color: #7952B3;
 }
 .chartext:hover>i.iconselect {
-    color: #6103c2;
+    color: #7952B3;
 }
 
 .chartext {
@@ -286,7 +293,7 @@ body {
 
 .chartext p {
     font-size: 1.5vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     color: white;
@@ -304,13 +311,13 @@ body {
     position: absolute;
     width: 800px;
     height: 550px;
-    background-color: rgba(64, 6, 88, 0.473);
+    background-color: rgba(52, 58, 64, 0.5);
     top: -80%;
     margin: 0 auto;
     left: 0;
     right: 0;
     border-bottom: 2px solid #b12424;
-    box-shadow: 0px 0px 6px 1px rgba(64, 6, 88, 0.473);
+    box-shadow: 0px 0px 6px 1px rgba(52, 58, 64, 0.5);
     box-shadow: inset 0px 0px 150px 0px rgba(255, 255, 255, 0.1);
     overflow: visible !important;
 }
@@ -381,7 +388,7 @@ body {
     text-align: center;
     color: white;
     line-height: 24px;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .characters-list {
@@ -406,7 +413,7 @@ body {
 .character-list-header > p {
     text-align: left;
     font-size: 1.5vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.2vh;
     font-weight: bold;
     color: white;
@@ -418,7 +425,7 @@ body {
     width: 10vh;
     height: 10vh;
     margin-top: 1.5vh;
-    background-color: rgba(64, 6, 88, 0.473);
+    background-color:  rgba(52, 58, 64, 0.5);
     font-family: 'Lato' monospace;
     border-bottom: 0.4vh solid #c5c5c5c5;
     transition: .3s linear;
@@ -475,17 +482,17 @@ body {
     width: 10vh;
     height: 10vh;
     margin-top: 1.5vh;
-    background-color: rgba(64, 6, 88, 0.473);
+    background-color: rgba(52, 58, 64, 0.5);
     border-bottom: 0.4vh solid #c5c5c5c5;
     transition: .3s linear;
 }
 
 .backbtn:hover {
-    border-bottom: 0.4vh solid #ffffff;
+    border-bottom: 0.4vh solid #7952B3;
 }
 
 .backbtn i{
-    color: white;
+    color: #7952B3;
     position: relative;
     font-size: 5vh;
     top: 2.5vh;
@@ -528,7 +535,7 @@ body {
 .char-selected {
     /* background-color: #9c88ffde; */
     width: 30vh;
-    border-bottom: 0.4vh solid #6103c2;
+    border-bottom: 0.4vh solid #7952B3;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -542,7 +549,7 @@ body {
     font-size: 0vh;
     top: 4.0vh;
     left: 8.0vh;
-    font-family: 'Lato' monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 #slot-icon {
@@ -561,7 +568,7 @@ body {
     left: 2.5vh;
     padding-right: 2vh;
     padding-bottom: 4vh;
-    color: #6103c2;
+    color: #7952B3;
 }
 
 .character-btn {
@@ -671,7 +678,7 @@ body {
     height: 2vh;
     margin-bottom: 1vh;
     /* border-bottom: .1vh solid white; */
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     letter-spacing: 0.1vh;
     text-align: left;
 }
@@ -704,12 +711,12 @@ body {
     left: 220px; 
     margin-left: auto; 
     margin-right: auto; 
-    border-bottom: .5vh solid #6103c2;
+    border-bottom: .5vh solid #7952B3;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 0px 19px 1px rgba(0,0,0,0.54);
     text-align: center;
     color: white;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     border-radius: 1vh;
 }
 
@@ -724,12 +731,12 @@ body {
     text-align: center;
     font-size: 1.8vh;
     line-height: 29px;
-    font-family: 'Lato', monospace;
-    border-bottom: 2px solid #6103c2;
+    font-family: 'Bebas Neue', cursive;
+    border-bottom: 2px solid #7952B3;
 }
 
 .characters-delete-block-header > p {
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .character-delete > p {
@@ -755,7 +762,7 @@ body {
 }
 
 .character-acceptdel-btn:hover {
-    background-color: #6103c2;
+    background-color: #7952b3;
 }
 
 .character-canceldel-btn {
@@ -773,14 +780,14 @@ body {
 }
 
 .character-canceldel-btn:hover {
-    background-color: #6103c2;
+    background-color: #7952b3;
 }
 
 .character-acceptdel-btn > p {
     color: white;
     text-align: center;
     padding-top: 13px;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     overflow: visible !important;
 }
 
@@ -788,7 +795,7 @@ body {
     color: white;
     text-align: center;
     padding-top: 13px;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     overflow: visible !important;
 }
 
@@ -802,8 +809,8 @@ body {
     /* padding-top: 2vh; */
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 0px 19px 1px rgba(0,0,0,0.54);
-    font-family: 'Lato', monospace;
-    border-bottom: .5vh solid #6103c2;
+    font-family: 'Bebas Neue', cursive;
+    border-bottom: .5vh solid #7952b3;
     font-size: 1.6vh;
     border-radius: 1vh;
 }
@@ -817,8 +824,8 @@ body {
     text-align: center;
     font-size: 1.8vh;
     line-height: 5vh;
-    font-family: 'Lato', monospace;
-    border-bottom: .3vh solid #6103c2;
+    font-family: 'Bebas Neue', cursive;
+    border-bottom: .3vh solid #7952b3;
 }
 
 .characters-delete-block-header > p {
@@ -848,8 +855,8 @@ body {
     padding: .4vh;
     border-radius: 2px 2px 4px 4px;
     box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-    border: 1px solid #6103c2;
-    font-family: 'Lato', monospace;
+    border: 1px solid #7952b3;
+    font-family: 'Bebas Neue', cursive;
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
@@ -861,7 +868,7 @@ body {
 }
 
 #first_name:focus,#last_name:focus,#nationality:focus,#birthdate:focus {
-    border-bottom: .2vh solid #6103c2;
+    border-bottom: .2vh solid #7952b3;
 }
 
 .char-reg-input:hover {
@@ -870,7 +877,7 @@ body {
 
 .char-reg-input:focus {
     background-color: rgba(34, 34, 34, 0.808);
-    border: 1px solid #6103c2;
+    border: 1px solid #7952b3;
 }
 
 .char-register-inputs select {
@@ -887,8 +894,8 @@ body {
     padding: .4vh;
     border-radius: 2px 2px 4px 4px;
     box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-    border: 1px solid #6103c2;
-    font-family: 'Lato', monospace;
+    border: 1px solid #7952b3;
+    font-family: 'Bebas Neue', cursive;
     text-align-last: center;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -904,7 +911,7 @@ select:hover {
 
 select:focus {
     background-color: rgba(34, 34, 34, 0.808);
-    border: 1px solid #6103c2;
+    border: 1px solid #7952b3;
 }
 
 #gender option {
@@ -927,7 +934,7 @@ select::-ms-expand {
 
 input[type="date"] {
     color: white;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     text-align: center;
 }
 
@@ -952,7 +959,7 @@ input[type="date"]::-webkit-clear-button {
 #birthdate {
     color: white;
     text-align: center;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .character-reg-btn {
@@ -970,7 +977,7 @@ input[type="date"]::-webkit-clear-button {
 }
 
 .character-reg-btn:hover {
-    background-color: #6103c2;
+    background-color: #7952b3;
 }
 
 .character-reg-btn > p {
@@ -1016,7 +1023,7 @@ input[type="date"]::-webkit-clear-button {
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0px 0px 19px 1px rgba(0,0,0,0.54);
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     border-bottom: 4px solid #40737c;
     border-radius: 0px 0px 10px 10px;
 }
@@ -1030,7 +1037,7 @@ input[type="date"]::-webkit-clear-button {
     text-align: center;
     font-size: 1.1vh;
     line-height: 30px;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     border-bottom: 2px solid #b12424;
 }
 
@@ -1038,7 +1045,7 @@ input[type="date"]::-webkit-clear-button {
     position: relative;
     top: 30px;
     color: rgb(255, 255, 255);
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     margin-top: 20px;
 }
 
@@ -1047,7 +1054,7 @@ input[type="date"]::-webkit-clear-button {
     font-size: 1.2vh;
     padding-left: 10px;
     text-shadow: 0px 0px 4px rgba(0,0,0,0.35);
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 #log-changes {
@@ -1056,7 +1063,7 @@ input[type="date"]::-webkit-clear-button {
     left: 30px;
     font-size: 1.0vh;
     text-shadow: 0px 0px 4px rgba(0,0,0,0.35);
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .welcomescreen {
@@ -1081,7 +1088,7 @@ input[type="date"]::-webkit-clear-button {
     top: 45px;
     left: 20px;
     font-size: 3.0vh;
-    font-family: 'Lato', monospace;
+    font-family: 'Bebas Neue', cursive;
     font-weight: bolder;
 }
 

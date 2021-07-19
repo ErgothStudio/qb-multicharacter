@@ -58,23 +58,23 @@
                     
                     <div class="character" id="char-1" data-cid="">
                         <span id="slot-icon" class="material-icons">account_box</span>
-						<span id="slot-name">Slot vazio<span id="cid"></span></span>
+						<span id="slot-name">SLOT VAZIO<span id="cid"></span></span>
                     </div>
                     <div class="character" id="char-2" data-cid="">
                         <span id="slot-icon" class="material-icons">account_box</span>
-                        <span id="slot-name">Slot vazio<span id="cid"></span></span>
+                        <span id="slot-name">SLOT VAZIO<span id="cid"></span></span>
                     </div>
                     <div class="character" id="char-3" data-cid="">
                         <span id="slot-icon" class="material-icons">account_box</span>
-                        <span id="slot-name">Slot vazio<span id="cid"></span></span>
+                        <span id="slot-name">SLOT VAZIO<span id="cid"></span></span>
                     </div>
                     <div class="character" id="char-4" data-cid="">
                         <span id="slot-icon" class="material-icons">account_box</span>
-                        <span id="slot-name">Slot vazio<span id="cid"></span></span>
+                        <span id="slot-name">SLOT VAZIO<span id="cid"></span></span>
                     </div>
                     <div class="character" id="char-5" data-cid="">
                         <span id="slot-icon" class="material-icons">account_box</span>
-                        <span id="slot-name">Slot vazio<span id="cid"></span></span>
+                        <span id="slot-name">SLOT VAZIO<span id="cid"></span></span>
                     </div>
                     <div class="backbtn">
                         <i class="material-icons">keyboard_backspace</i>
@@ -87,9 +87,9 @@
                         <!-- <i class="material-icons" >arrow_drop_down</i> -->
                     </div>
                     <div class="char-buttons">
-                        <a class="btn-floating btn-tam waves-effect waves-light green char-play tooltipped" data-position="right" data-tooltip="Play" onclick="console.log('Play');chatplay();"><i class="material-icons">play_arrow</i></a>
-                        <a class="btn-floating btn-tam waves-effect waves-light lightblue char-info tooltipped" data-position="right" data-tooltip="test" onclick="console.log('Info');"><i class="material-icons">priority_high</i></a>
-                        <a class="btn-floating btn-tam waves-effect waves-light red char-delete tooltipped" data-position="right" data-tooltip="Delete Character" onclick="console.log('Delete'); deletePlayer();"><i class="material-icons">delete</i></a>
+                        <a class="btn-floating btn-tam waves-effect waves-light green char-play tooltipped" data-position="right" data-tooltip="Jogar" onclick="console.log('Entrando na Cidade Zion');chatplay();"><i class="material-icons">play_arrow</i></a>
+                        <a class="btn-floating btn-tam waves-effect waves-light lightblue char-info tooltipped" data-position="right" data-tooltip="Info" onclick="console.log('Info');"><i class="material-icons">priority_high</i></a>
+                        <a class="btn-floating btn-tam waves-effect waves-light red char-delete tooltipped" data-position="right" data-tooltip="Deletar" onclick="console.log('Deletando personagem'); deletePlayer();"><i class="material-icons">delete</i></a>
                     </div>
                 </div>
 
@@ -107,7 +107,7 @@
             
                 <div class="character-register">
                     <div class="characters-register-block-header">
-                        <p>Criação de personagem</p>
+                        <p>ÁREA DE CADASTRO</p>
                         <i class="material-icons" id="close-reg" onclick="closereg()">close</i>
                     </div>
                     <div class="char-register-inputs">
@@ -116,8 +116,9 @@
                         <input type="text" id="nationality" placeholder="Nacionalidade" class="char-reg-input">
                         <input type="date" id="birthdate" placeholder="Data de Nascimento" min="01-01-1900" max="31-12-2999" class="char-reg-input">
                         <select id="gender" name="gender">
-                            <option value="hombre" selected>Homem</option>
-                            <option value="mujer">Mulher</option>
+                            <option value="Homem" selected>Homem</option>
+                            <option value="Mulher">Mulher</option>
+                            <option value="Não-binário">Não-binário</option>
                         </select>
                     </div>
                     <div class="character-reg-btn" id="create"><p id="create-text">Confirmar</p></div>                            
@@ -127,7 +128,7 @@
 
                 <div class="character-delete">
                     <div class="characters-delete-block-header">
-                        <p>Remover personagem</p>
+                        <p>REMOVER PERSONAGEM</p>
                         <i class="material-icons" id="close-del" onclick="closedel();">close</i>
                     </div>
                     <div class="textdelete">
@@ -136,8 +137,8 @@
                     <p id="yeet">Todos os dados do seu personagem serão apagados e não podem ser recuperados.</p>
                 </div>
 
-                    <div class="character-acceptdel-btn" id="accept-delete"><p id="accept-text">Remover</p></div>
-                    <div class="character-canceldel-btn" id="cancel-delete"><p id="cancel-text">Cancelar</p></div>
+                    <div class="character-acceptdel-btn" id="accept-delete"><p id="accept-text">REMOVER</p></div>
+                    <div class="character-canceldel-btn" id="cancel-delete"><p id="cancel-text">CANCELAR</p></div>
                 </div>
             </div>
         </div>

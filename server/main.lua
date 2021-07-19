@@ -1,21 +1,18 @@
-QBCore = nil
-TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
-
 RegisterServerEvent('qb-multicharacter:server:disconnect')
 AddEventHandler('qb-multicharacter:server:disconnect', function()
     local src = source
 
-    DropPlayer(src, "You have disconnected from Qbus Roleplay")
+    DropPlayer(src, "Você desconectou de QBCore")
 end)
 
 RegisterServerEvent('qb-multicharacter:server:loadUserData')
 AddEventHandler('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
     if QBCore.Player.Login(src, cData.citizenid) then
-        print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
+        print('^2[z-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
         QBCore.Commands.Refresh(src)
         loadHouseData()
-		--TriggerEvent('QBCore:Server:OnPlayerLoaded')-
+		--TriggerEvent(QBCore:Server:OnPlayerLoaded')-
         --TriggerClientEvent('QBCore:Client:OnPlayerLoaded', src)
         
         TriggerClientEvent('apartments:client:setupSpawnUI', src, cData)
@@ -31,7 +28,7 @@ AddEventHandler('qb-multicharacter:server:createCharacter', function(data)
     newData.charinfo = data
     --QBCore.Player.CreateCharacter(src, data)
     if QBCore.Player.Login(src, false, newData) then
-        print('^2[qb-core]^7 '..GetPlayerName(src)..' has succesfully loaded!')
+        print('^2[z-core]^7 '..GetPlayerName(src)..' has succesfully loaded!')
         QBCore.Commands.Refresh(src)
         loadHouseData()
 
@@ -71,9 +68,9 @@ AddEventHandler('qb-multicharacter:server:deleteCharacter', function(citizenid)
 end)
 
 QBCore.Functions.CreateCallback("qb-multicharacter:server:GetUserCharacters", function(source, cb)
-    local steamId = GetPlayerIdentifier(source, 0)
+    local license = QBCore.Functions.GetIdentifier(source, 'license')
 
-    exports['ghmattimysql']:execute('SELECT * FROM players WHERE steam = @steam', {['@steam'] = steamId}, function(result)
+    exports['ghmattimysql']:execute('SELECT * FROM players WHERE license=@license', {['@license'] = license}, function(result)
         cb(result)
     end)
 end)
@@ -85,10 +82,10 @@ QBCore.Functions.CreateCallback("qb-multicharacter:server:GetServerLogs", functi
 end)
 
 QBCore.Functions.CreateCallback("test:yeet", function(source, cb)
-    local steamId = GetPlayerIdentifiers(source)[1]
+    local license = QBCore.Functions.GetIdentifier(source, 'license')
     local plyChars = {}
     
-    exports['ghmattimysql']:execute('SELECT * FROM players WHERE steam = @steam', {['@steam'] = steamId}, function(result)
+    exports['ghmattimysql']:execute('SELECT * FROM players WHERE license = @license', {['@license'] = license}, function(result)
         for i = 1, (#result), 1 do
             result[i].charinfo = json.decode(result[i].charinfo)
             result[i].money = json.decode(result[i].money)
