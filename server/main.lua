@@ -9,7 +9,7 @@ RegisterServerEvent('qb-multicharacter:server:loadUserData')
 AddEventHandler('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
     if QBCore.Player.Login(src, cData.citizenid) then
-        print('^2[z-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
+        print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
         QBCore.Commands.Refresh(src)
         loadHouseData()
 		--TriggerEvent(QBCore:Server:OnPlayerLoaded')-
@@ -28,7 +28,7 @@ AddEventHandler('qb-multicharacter:server:createCharacter', function(data)
     newData.charinfo = data
     --QBCore.Player.CreateCharacter(src, data)
     if QBCore.Player.Login(src, false, newData) then
-        print('^2[z-core]^7 '..GetPlayerName(src)..' has succesfully loaded!')
+        print('^2[qb-core]^7 '..GetPlayerName(src)..' has succesfully loaded!')
         QBCore.Commands.Refresh(src)
         loadHouseData()
 
