@@ -285,3 +285,61 @@ AddEventHandler('QBCore:Client:OnPlayerUnload', function()
     choosingCharacter = false
     TriggerEvent('qb-multicharacter:client:chooseChar')
 end)
+
+
+-- Logout Function --
+RegisterNetEvent('multichar:logout')
+AddEventHandler('multichar:logout', function(data)
+    SetTimecycleModifier('hud_def_blur')
+    SetTimecycleModifierStrength(0.0)
+    if not IsPlayerSwitchInProgress() then
+        SwitchOutPlayer(PlayerPedId(), 1, 1)
+    end
+    while GetPlayerSwitchState() ~= 5 do
+        Citizen.Wait(0)
+        ClearScreen()
+        disableshit(true)
+    end
+    ClearScreen()
+    Citizen.Wait(0)
+    SetEntityCoords(GetPlayerPed(-1), Config.HiddenCoords.x, Config.HiddenCoords.y, Config.HiddenCoords.z)
+    local timer = GetGameTimer()
+    ShutdownLoadingScreenNui()
+	FreezeEntityPosition(GetPlayerPed(-1), true)
+    SetEntityVisible(GetPlayerPed(-1), false, false)
+    Citizen.CreateThread(function()
+        RequestCollisionAtCoord(-1453.29, -551.6, 72.84)
+        while not HasCollisionLoadedAroundEntity(GetPlayerPed(-1)) do
+            print('[Liq-multicharacter] Loading spawn collision.')
+            Wait(0)
+        end
+    end)
+    Citizen.Wait(3500)
+
+    while true do
+        ClearScreen()
+        Citizen.Wait(0)
+        if GetGameTimer() - timer > 5000 then
+            SwitchInPlayer(PlayerPedId())
+            ClearScreen()
+            CreateThread(function()
+                Wait(4000)
+            end)
+
+            while GetPlayerSwitchState() ~= 12 do
+                Citizen.Wait(0)
+                ClearScreen()
+            end
+            
+            break
+        end
+    end
+    NetworkSetTalkerProximity(0.0)
+        SetNuiFocus(true, true)
+        SendNUIMessage({
+            action = "logout",
+            toggle = true,
+        })
+        choosingCharacter = true
+        skyCam(true)
+end)
